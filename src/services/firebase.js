@@ -30,6 +30,12 @@ export default async function signInWithGoogle() {
       const token = credential.accessToken;
       const user = result.user;
       sessionStorage.setItem("uid", user.uid);
+      const [uid, username, displayName] = [
+        user.uid,
+        user.username,
+        user.displayName,
+      ];
+      // TODO create user in DB
     })
     .catch((error) => {
       // Handle Errors here.
